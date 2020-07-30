@@ -1,0 +1,8 @@
+1. no __init__.py created for server folder
+
+2. server/swagger does not generate
+
+3. database file does not generate inside project folder
+sqlalchemy.exc.ArgumentError: Mapper mapped class User->User could not assemble any primary key columns for mapped table 'User'
+
+4.

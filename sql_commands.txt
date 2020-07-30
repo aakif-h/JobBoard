@@ -1,0 +1,35 @@
+CREATE TABLE User (
+    user_id INTEGER PRIMARY KEY,
+    user_name TEXT NOT NULL,
+    password TEXT NOT NULL,
+    full_name TEXT NOT NULL,
+    company_id INTEGER,
+    FOREIGN KEY (company_id)
+        REFERENCES Company(company_id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION
+);
+
+CREATE TABLE Company (
+    company_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    num_employees INTEGER DEFAULT 0
+);
+
+CREATE TABLE Job (
+    job_id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    job_link TEXT NOT NULL,
+    number_applicants INTEGER DEFAULT 0,
+    company_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (company_id)
+        REFERENCES Company(company_id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION
+    FOREIGN KEY (user_id)
+        REFERENCES User(user_id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION
+);
