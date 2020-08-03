@@ -2,6 +2,7 @@ from flask import Flask
 from server.Job import blueprint_Job
 from server.Company import blueprint_Company
 from server.User import blueprint_User
+from server import pages
 
 #from server.swagger import blueprint_swagger
 app = Flask(__name__)
@@ -11,6 +12,7 @@ if __name__ == "__main__":
     app.debug = True
 
     # Register all the routes to the app
+    app.register_blueprint(pages)
     app.register_blueprint(blueprint_Job)
     app.register_blueprint(blueprint_Company)
     app.register_blueprint(blueprint_User)
